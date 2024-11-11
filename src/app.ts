@@ -2,20 +2,33 @@ import express, { Request, Response } from 'express';
 
 const app = express();
 const port = 3000;
+app.use(express.json());
 
-app.get('/records/:id?', async (req, res): Promise<void> => {
+app.get('/',async (req, res): Promise<void> => {
 
-  const { id } = req.params;
-
-  res.status(200).json({ message: 'Id was sent as params' });
+  res.status(200).json({ message: 'hello world' });
   return;
 
 });
 
-app.post('/records', async (req, res): Promise<void> => {
+app.get('/employees/:emp_id?', async (req, res): Promise<void> => {
+
+  const { emp_id } = req.params;
+
+  res.status(200).json({ message: 'Id was sent as params', emp_id : emp_id });
+  return;
+
+});
+
+app.post('/employees', async (req, res): Promise<void> => {
 
   const { name, age } = req.body;
   //add send msg
+  res.status(200).json({ message: 'Your req is successful' , data :[{
+    name, 
+    age
+}]});
+  return;
 });
 
 
