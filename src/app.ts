@@ -4,6 +4,7 @@ import { AppDataSource } from './ormconfig';
 import { Student } from './entity/Student';
 
 const app = express();
+export default app;
 const port = 3000;
 
 app.use(express.json());
